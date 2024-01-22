@@ -1,7 +1,6 @@
 <!-- templates/base.html  main template -->
-{% load static %}
 <!DOCTYPE html>
-
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,17 +11,19 @@ rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <div class="nav-left">
+<header class="navbar navbar-expand-lg text-white navbar-dark bg-success ">
+    <div class="nav-left text-white">
         <h1> <a href="{% url 'home' %}"> Django blog ... </a> </h1>
     </div>
-    <div class="nav-right">
+    <div class="nav-right text-white">
           <a href="{% url 'post_new' %}"> +New post </a>
     </div>
-</header>
+  </header>
 
+<div>
 {% if user.is_authenticated %}
     <p>Hi {{ user.username }}! </p>
+
     <p><a href="{% url 'logout' %}">Log out</a></p>
 {% else %}
 
@@ -30,6 +31,8 @@ rel="stylesheet">
     <a href="{% url 'login' %}"> Log in ...</a>
 
 {% endif %}
+
+    </div>
 
 <div>
     <section>
